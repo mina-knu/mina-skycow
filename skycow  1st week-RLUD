@@ -1,0 +1,25 @@
+#여행자 이동 도착지점 [구현]상하좌우
+
+N = int(input()) 
+way = input().split() 
+
+x, y = 1, 1
+
+dx = [0, 0, -1, 1]
+dy = [1, -1, 0, 0]
+move_types = ['R', 'L', 'U', 'D']
+
+next_x, next_y = 0,0
+
+for direct in way: 
+    for i in range(len(move_types)):
+        if direct == move_types[i]:
+            next_x = x + dx[i] 
+            next_y = y + dy[i]
+            
+    if next_x < 1 or next_y < 1 or next_x > N or next_y > N:
+        continue
+        
+    x, y = next_x, next_y
+        
+print(x, y)
