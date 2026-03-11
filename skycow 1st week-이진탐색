@@ -1,0 +1,25 @@
+#[이진탐색]떡볶이 떡
+
+N,M = map(int, input().split()) 
+rice_cakes = list(map(int,input().split())) 
+
+start = 0 
+end = max(rice_cakes) 
+result = 0 
+
+while start <= end: 
+    mid = (start + end) // 2
+    total = 0
+
+    for x in rice_cakes:  
+        if x > mid: 
+            total += x - mid
+
+    if total < M: 
+        end = mid - 1 
+    
+    else: 
+        result = mid 
+        start = mid + 1
+
+print(result)
